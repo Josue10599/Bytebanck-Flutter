@@ -10,11 +10,14 @@ class ByteBankApp extends StatelessWidget {
     return MaterialApp(
       title: "ByteBank",
       theme: ThemeData(
-          primaryColor: color.primaryColor,
-          accentColor: color.accentColor,
-          cursorColor: color.primaryColor,
-          buttonTheme: ButtonThemeData(buttonColor: color.primaryColor)),
-      home: SafeArea(child: TelaTransferencias()),
+        primaryColor: color.primaryColor,
+        accentColor: color.accentColor,
+        cursorColor: color.primaryColor,
+        buttonTheme: ButtonThemeData(
+          buttonColor: color.primaryColor,
+        ),
+      ),
+      home: TelaTransferencias(),
     );
   }
 }
