@@ -1,7 +1,7 @@
 import 'package:ByteBank/model/transferencia.dart';
+import 'package:ByteBank/ui/formulario_transferencia.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../constantes/color.dart';
 
 class TelaTransferencias extends StatelessWidget {
   @override
@@ -9,15 +9,19 @@ class TelaTransferencias extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Transferências"),
-        backgroundColor: primaryColor,
       ),
       body: ListaDeTransferencias(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-
+          final Future<Transferencia> transaferencia =
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return TelaFormularioTransferencia();
+          }));
+          transaferencia.then((transaferenciaRecebida) {
+            debugPrint(transaferenciaRecebida.toString());
+          });
         },
         child: Icon(Icons.add),
-        backgroundColor: accentColor,
       ),
     );
   }

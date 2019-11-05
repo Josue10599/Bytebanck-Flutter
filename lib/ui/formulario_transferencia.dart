@@ -1,15 +1,12 @@
 import 'package:ByteBank/model/transferencia.dart';
 import 'package:flutter/material.dart';
 
-import '../constantes/color.dart';
-
 class TelaFormularioTransferencia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Criando Transferência"),
-        backgroundColor: primaryColor,
       ),
       body: FormularioTransferencia(),
     );
@@ -85,7 +82,6 @@ class BotaoSalvar extends StatelessWidget {
   Widget build(BuildContext context) {
     return RaisedButton(
       padding: EdgeInsets.all(16),
-      color: primaryColor,
       child: Text(
         "Enviar Transação",
         style: TextStyle(
@@ -93,16 +89,17 @@ class BotaoSalvar extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        realizarTransacao();
+        realizarTransacao(context);
       },
     );
   }
 
-  void realizarTransacao() {
+  void realizarTransacao(BuildContext context) {
     final int numeroDaConta = int.tryParse(_controllerConta.text);
     final double valorTransferencia = double.tryParse(_controllerValor.text);
     if (numeroDaConta != null && valorTransferencia != null) {
       var transferencia = Transferencia(valorTransferencia, numeroDaConta);
+      Navigator.pop(context, transferencia);
       debugPrint(transferencia.toString());
     }
   }
