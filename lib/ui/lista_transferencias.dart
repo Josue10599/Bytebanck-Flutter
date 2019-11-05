@@ -1,5 +1,7 @@
-import 'package:alura_bytebank/color.dart';
+import 'package:ByteBank/model/transferencia.dart';
 import 'package:flutter/material.dart';
+
+import '../constantes/color.dart';
 
 class TelaTransferencias extends StatelessWidget {
   @override
@@ -11,7 +13,9 @@ class TelaTransferencias extends StatelessWidget {
       ),
       body: ListaDeTransferencias(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+
+        },
         child: Icon(Icons.add),
         backgroundColor: accentColor,
       ),
@@ -47,11 +51,4 @@ class ItemTransferencia extends StatelessWidget {
       ),
     );
   }
-}
-
-class Transferencia {
-  Transferencia(this.valor, this.numeroConta);
-
-  final double valor;
-  final int numeroConta;
 }
