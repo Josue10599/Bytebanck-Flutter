@@ -8,12 +8,19 @@ class TelaFormularioTransferencia extends StatelessWidget {
       appBar: AppBar(
         title: Text("Criando Transferência"),
       ),
-      body: FormularioTransferencia(),
+      body: SingleChildScrollView(
+        child: FormularioTransferencia(),
+      ),
     );
   }
 }
 
-class FormularioTransferencia extends StatelessWidget {
+class FormularioTransferencia extends StatefulWidget {
+  @override
+  _FormularioTransferenciaState createState() => _FormularioTransferenciaState();
+}
+
+class _FormularioTransferenciaState extends State<FormularioTransferencia> {
   final TextEditingController _controllerConta = TextEditingController();
   final TextEditingController _controllerValor = TextEditingController();
 
@@ -26,7 +33,7 @@ class FormularioTransferencia extends StatelessWidget {
           icon: Icons.business,
           labelText: 'Número da Conta',
           hintText: '0000',
-          maxLength: 11,
+          maxLength: 4,
         ),
         EditorDeTexto(
           controller: _controllerValor,
@@ -58,6 +65,7 @@ class EditorDeTexto extends StatelessWidget {
       alignment: Alignment.center,
       margin: EdgeInsets.symmetric(horizontal: 0.0, vertical: 10.0),
       child: TextField(
+        textInputAction: TextInputAction.done,
         maxLength: maxLength != null ? maxLength : null,
         keyboardType: TextInputType.number,
         controller: controller,
