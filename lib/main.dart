@@ -1,6 +1,7 @@
 import 'package:ByteBank/constantes/color.dart' as color;
-import 'package:ByteBank/ui/lista_transferencias.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/lista_transferencias.dart';
 
 void main() => runApp(ByteBankApp());
 
@@ -14,7 +15,7 @@ class ByteBankApp extends StatelessWidget {
         accentColor: color.accentColor,
         cursorColor: color.primaryColor,
         buttonTheme: ButtonThemeData(
-          buttonColor: color.primaryColor,
+          buttonColor: color.accentColor,
         ),
       ),
       home: TelaTransferencias(),
