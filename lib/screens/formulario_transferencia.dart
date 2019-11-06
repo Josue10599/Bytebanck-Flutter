@@ -55,8 +55,10 @@ class BotaoSalvar extends StatelessWidget {
   final TextEditingController _controllerConta;
   final TextEditingController _controllerValor;
 
-  BotaoSalvar(this._controllerConta,
-      this._controllerValor,);
+  BotaoSalvar(
+    this._controllerConta,
+    this._controllerValor,
+  );
 
   @override
   Widget build(BuildContext context) {
